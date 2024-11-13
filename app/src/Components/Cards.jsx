@@ -60,8 +60,8 @@ const resetTurn=()=>{
   return (
     <div>
       <div className="text-center">
-        <h1>Magic</h1>
-        <button onClick={shuffleCards}>New game</button>
+        <h1 className="text-[30px] font-[600] text-white">Magic</h1>
+        <button onClick={shuffleCards} className="text-[30px] font-600 text-white">New game</button>
       </div>
       <div className="card-grid">
         {cards.map((card) => {
