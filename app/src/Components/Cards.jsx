@@ -9,12 +9,12 @@ function Cards() {
   const [choiceTwo, setChoiceTwo] = useState(null);
   
   const cardImages = [
-    { src: "/src/assets/anime-moon-landscape.jpg" , matched : false },
-    { src: "/src/assets/backiee-286508-landscape.jpg" ,matched : false },
-    { src: "/src/assets/backiee-286745-landscape.jpg" ,matched : false },
-    { src: "/src/assets/frieren-frieren-3840x2160-15163.jpg" , matched : false },
-    { src: "src/assets/anime-moon-landscape.jpg", matched : false },
-    { src: "/src/assets/beautiful-anime-kid-cartoon-scene.png" ,matched : false },
+    { src: "/src/assets/CardDeath.jpg" , matched : false },
+    { src: "/src/assets/CardDevil.jpg" ,matched : false },
+    { src: "/src/assets/CardEmperor.jpg" ,matched : false },
+    { src: "/src/assets/CardFool.jpg" , matched : false },
+    { src: "src/assets/CardHermit.jpg", matched : false },
+    { src: "/src/assets/CardQueen.jpg" ,matched : false },
   ];
 
   const shuffleCards = () => {
