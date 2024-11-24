@@ -1,11 +1,11 @@
+import AppRoutes from '../AppRoutes'
 import './App.css'
-import Cards from './Components/Cards'
 
 function App() {
   
   return (
     <>
-     <Cards />
+    <AppRoutes/>
     </>
   )
 }
