@@ -8,8 +8,8 @@ function SingleCards( { card , handlerChoices , flipped }) {
   return (
     <div className='card'>
       <div className={flipped ? "flipped" : ""}>
-        <img src={card.src} className='front w-36 h-56 object-fill ' alt="card front" />                    
-        <img src="/src/assets/coverCard.jpg" className='back w-36 h-56 object-cover' alt="card back" onClick={handleClick} />
+        <img src={card.src} className='front h-full object-cover' alt="card front" />                    
+        <img src="/src/assets/coverCard.jpg" className='back h-full ' alt="card back" onClick={handleClick} />
       </div>
 </div>
   )
