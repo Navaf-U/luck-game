@@ -5,3 +5,7 @@
 body{
 background-color: #060621;
 }
+*{
+    scrollbar-color: #7f23cf #060621;
+}
+

@@ -98,14 +98,10 @@ function Cards() {
   };
 
   return (
-    <div className="bg-[#060621] min-h-screen overflow-hidden h-screen mt-[-3px]">
+    <div className="bg-[#060621] min-h-screen overflow-hidden h-screen mt-4">
       <div className="fixed top-0 w-full left-0 z-10">
         <NavBar retryForFailed={retryForFailed} />
       </div>
-      <div className="text-center mt-[-20px]">
-        <h1 className="text-[30px] font-[600] text-white sm:text-[24px]">Magic</h1>
-      </div>
-
       <div className="mt-56 hidden sm:flex flex-col items-center absolute top-5 right-5 border border-white text-white rounded-xl p-2 shadow-lg w-[220px]">
         <p className="text-center font-semibold">Moves</p>
         <p className="text-center text-2xl font-bold">{moves}</p>
@@ -115,7 +111,7 @@ function Cards() {
           Play Again
       </div>
 
-      <div className=" grid grid-cols-3 gap-4 sm:grid-cols-4 xs:grid-cols-1 px-4 py-8 max-w-screen-lg mx-auto sm:w-[550px] sm:h-auto">
+      <div className=" grid grid-cols-3 gap-3 sm:grid-cols-4 xs:grid-cols-1 px-4 py-8 max-w-screen-lg mx-auto sm:w-[550px] sm:h-auto">
         {cards.map((card) => (
           <SingleCards
             handlerChoices={handlerChoices}

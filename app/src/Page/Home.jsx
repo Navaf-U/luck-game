@@ -11,10 +11,6 @@ function Home() {
     <div className="text-black flex flex-col justify-center items-center">
       <h1 className='text-white text-[35px] font-semibold'>Memory Game</h1>
       <div className='flex'>
-        <div className="card">🐱</div>
-        <div className="card">🌟</div>
-        <div className="card">🚀</div>
-        <div className="card">🎉</div>
       </div>
       <h1 onClick={()=>navigate("/cards")} className='cursor-pointer mt-2 bg-blue-600 rounded-md px-3 py-2 w-56 text-center font-semibold'>START</h1>
     </div>

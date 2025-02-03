@@ -1,15 +1,16 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { IoMdMenu } from "react-icons/io";
 function NavBar({retryForFailed}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const navigate = useNavigate();
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handlePlayAgain = ()=>{
+    navigate("/cards")
     retryForFailed()
     setIsMenuOpen(false)
   }
