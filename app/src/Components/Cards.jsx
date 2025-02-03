@@ -4,7 +4,12 @@ import "./card.css";
 import NavBar from "./NavBar";
 import SingleCards from "./SingleCards";
 import { useEffect, useState } from "react";
-
+import card1 from '../assets/card-1.jpg'
+import card2 from '../assets/card-2.jpg'
+import card3 from '../assets/card-3.jpg' 
+import card4 from '../assets/card-4.jpg' 
+import card5 from '../assets/card-5.jpg' 
+import card6 from '../assets/card-6.jpg' 
 function Cards() {
   const [cards, setCards] = useState([]);
   const [choiceOne, setChoiceOne] = useState(null);
@@ -14,13 +19,15 @@ function Cards() {
   const [hasFailed, setHasFailed] = useState(false);
   const [success, setSuccess] = useState(false);
 
+
+
   const cardImages = [
-    { src: "../../public/assets/card-1.jpg", matched: false },
-    { src: "../../public/assets/card-2.jpg", matched: false },
-    { src: "../../public/assets/card-3.jpg", matched: false },
-    { src: "../../public/assets/card-4.jpg", matched: false },
-    { src: "../../public/assets/card-5.jpg", matched: false },
-    { src: "../../public/assets/card-6.jpg", matched: false },
+    { src: card1, matched: false },
+    { src: card2, matched: false },
+    { src: card3, matched: false },
+    { src: card4, matched: false },
+    { src: card5, matched: false },
+    { src: card6, matched: false },
   ];
 
   const shuffleCards = () => {
@@ -107,8 +114,11 @@ function Cards() {
         <p className="text-center text-2xl font-bold">{moves}</p>
       </div>
 
-      <div onClick={retryForFailed} className="mt-56 hidden sm:flex flex-col items-center absolute top-5 left-16 text-white rounded-xl p-4 shadow-lg w-[220px] bg-[#c70039]">
-          Play Again
+      <div
+        onClick={retryForFailed}
+        className="mt-56 hidden sm:flex flex-col items-center absolute top-5 left-16 text-white rounded-xl p-4 shadow-lg w-[220px] bg-[#c70039]"
+      >
+        Play Again
       </div>
 
       <div className=" grid grid-cols-3 gap-3 sm:grid-cols-4 xs:grid-cols-1 px-4 py-8 max-w-screen-lg mx-auto sm:w-[550px] sm:h-auto">
