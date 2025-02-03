@@ -6,7 +6,7 @@ function Home() {
   return (
   <div className=''>
   <div className='fixed top-0 w-full left-0'>
-  <NavBar/>
+  <NavBar />
   </div>
     <div className="text-black flex flex-col justify-center items-center">
       <h1>Memory Game</h1>

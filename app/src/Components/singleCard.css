@@ -1,13 +1,5 @@
 .card {
-  margin-top: 5px;
-  width: 170px;
-  height: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  perspective: 1000px;
-  overflow: hidden;
+margin-bottom: 0px;
 }
 
 .card img {

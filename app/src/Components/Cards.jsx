@@ -32,6 +32,7 @@ function Cards() {
   };
 
   const handlerChoices = (card) => {
+    setMoves((prev) => prev + 1); // Increment move for each card flip
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
   };
 
@@ -43,7 +44,6 @@ function Cards() {
             card.src === choiceOne.src ? { ...card, matched: true } : card
           )
         );
-        setMoves((prev) => prev + 1);
         resetTurn();
       } else {
         setTimeout(() => {
@@ -66,7 +66,6 @@ function Cards() {
   const resetTurn = () => {
     setChoiceOne(null);
     setChoiceTwo(null);
-    setMoves((prev) => prev + 1);
   };
 
   useEffect(() => {
@@ -84,6 +83,7 @@ function Cards() {
     setMoves(0);
     setHasFailed(false);
   };
+
   const successor = () => {
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
@@ -98,14 +98,24 @@ function Cards() {
   };
 
   return (
-    <div className="bg-[#060621] h-screen">
-      <div className="fixed top-0 w-full  left-0">
+    <div className="bg-[#060621] min-h-screen overflow-hidden h-screen">
+      <div className="fixed top-0 w-full left-0 z-10">
         <NavBar />
       </div>
-      <div className="text-center">
-        <h1 className="text-[30px] font-[600] text-white">Magic</h1>
+      <div className="text-center mt-[-20px]">
+        <h1 className="text-[30px] font-[600] text-white sm:text-[24px]">Magic</h1>
       </div>
-      <div className="card-grid">
+
+      <div className="mt-56 hidden sm:flex flex-col items-center absolute top-5 right-5 bg-[#7f23cf] text-white rounded-xl p-2 shadow-lg w-[220px]">
+        <p className="text-center font-semibold">Moves</p>
+        <p className="text-center text-2xl font-bold">{moves}</p>
+      </div>
+
+      <div onClick={retryForFailed} className="mt-56 hidden sm:flex flex-col items-center absolute top-5 left-16 text-white rounded-xl p-4 shadow-lg w-[220px] bg-[#c70039]">
+          Play Again
+      </div>
+
+      <div className="card-grid grid grid-cols-3 gap-4 sm:grid-cols-4 xs:grid-cols-1 px-4 py-8 max-w-screen-lg mx-auto sm:w-[550px] sm:h-auto">
         {cards.map((card) => (
           <SingleCards
             handlerChoices={handlerChoices}
@@ -115,6 +125,11 @@ function Cards() {
           />
         ))}
       </div>
+
+      <p className="sm:hidden w-full text-white font-semibold text-center absolute bottom-[-10px] bg-gradient-to-r from-purple-600 to-[#7f23cf] rounded-xl p-2 shadow-lg">
+        Moves: {moves}
+      </p>
+
       {showModal && hasFailed && (
         <FailedModal retryForFailed={retryForFailed} />
       )}
