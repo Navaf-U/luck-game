@@ -1,22 +1,30 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-
+import { IoMdMenu } from "react-icons/io";
 function NavBar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg  bg-purple-700">
-      <div className="container-fluid">
-        <NavLink className="navbar-brand">Memory Game</NavLink>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+    <nav className="bg-purple-700 fixed w-full top-0 z-10">
+      <div className="flex items-center justify-between p-4">
+        <NavLink to="/" className="text-white text-xl font-bold">
+          Memory Game
+        </NavLink>
+        <IoMdMenu onClick={handleMenuToggle}/>
+        {isMenuOpen && (
+          <div className="absolute top-16 right-0 rounded-lg shadow-lg p-4 w-40">
+            <button
+              className="w-full text-white bg-[#c70039]"
+
+            >
+              Play Again
+            </button>
+          </div>
+        )}
       </div>
     </nav>
   );
