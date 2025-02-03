@@ -15,12 +15,12 @@ function Cards() {
   const [success, setSuccess] = useState(false);
 
   const cardImages = [
-    { src: "/src/assets/card-1.jpg", matched: false },
-    { src: "/src/assets/card-2.jpg", matched: false },
-    { src: "/src/assets/card-3.jpg", matched: false },
-    { src: "/src/assets/card-4.jpg", matched: false },
-    { src: "src/assets/card-5.jpg", matched: false },
-    { src: "/src/assets/card-6.jpg", matched: false },
+    { src: "../../public/assets/card-1.jpg", matched: false },
+    { src: "../../public/assets/card-2.jpg", matched: false },
+    { src: "../../public/assets/card-3.jpg", matched: false },
+    { src: "../../public/assets/card-4.jpg", matched: false },
+    { src: "../../public/assets/card-5.jpg", matched: false },
+    { src: "../../public/assets/card-6.jpg", matched: false },
   ];
 
   const shuffleCards = () => {

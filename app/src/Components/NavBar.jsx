@@ -19,7 +19,7 @@ function NavBar({retryForFailed}) {
     <nav className="bg-purple-700 fixed w-full top-0 z-10  ">
       <div className="flex items-center justify-between p-4 h-10 ">
         <NavLink to="/" className="text-white text-xl font-bold">
-          Memory Game
+          Luck Game
         </NavLink>
         <IoMdMenu size={35} className="sm:hidden" onClick={handleMenuToggle}/>
         {isMenuOpen && (
