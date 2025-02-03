@@ -23,7 +23,7 @@ function NavBar({retryForFailed}) {
         </NavLink>
         <IoMdMenu size={35} className="sm:hidden" onClick={handleMenuToggle}/>
         {isMenuOpen && (
-          <div className="absolute bg-black h-20 items-center flex top-16 right-0 rounded-lg shadow-lg p-4 w-40">
+          <div className="absolute bg-black h-20 items-center flex top-10 right-0 rounded-lg shadow-lg p-4 w-40">
             <button onClick={handlePlayAgain}
               className="w-full text-white bg-[#c70039]"
             >
