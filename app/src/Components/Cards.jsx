@@ -32,7 +32,7 @@ function Cards() {
   };
 
   const handlerChoices = (card) => {
-    setMoves((prev) => prev + 1); // Increment move for each card flip
+    setMoves((prev) => prev + 1);
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
   };
 
@@ -98,15 +98,15 @@ function Cards() {
   };
 
   return (
-    <div className="bg-[#060621] min-h-screen overflow-hidden h-screen">
+    <div className="bg-[#060621] min-h-screen overflow-hidden h-screen mt-[-3px]">
       <div className="fixed top-0 w-full left-0 z-10">
-        <NavBar />
+        <NavBar retryForFailed={retryForFailed} />
       </div>
       <div className="text-center mt-[-20px]">
         <h1 className="text-[30px] font-[600] text-white sm:text-[24px]">Magic</h1>
       </div>
 
-      <div className="mt-56 hidden sm:flex flex-col items-center absolute top-5 right-5 bg-[#7f23cf] text-white rounded-xl p-2 shadow-lg w-[220px]">
+      <div className="mt-56 hidden sm:flex flex-col items-center absolute top-5 right-5 border border-white text-white rounded-xl p-2 shadow-lg w-[220px]">
         <p className="text-center font-semibold">Moves</p>
         <p className="text-center text-2xl font-bold">{moves}</p>
       </div>
@@ -115,7 +115,7 @@ function Cards() {
           Play Again
       </div>
 
-      <div className="card-grid grid grid-cols-3 gap-4 sm:grid-cols-4 xs:grid-cols-1 px-4 py-8 max-w-screen-lg mx-auto sm:w-[550px] sm:h-auto">
+      <div className=" grid grid-cols-3 gap-4 sm:grid-cols-4 xs:grid-cols-1 px-4 py-8 max-w-screen-lg mx-auto sm:w-[550px] sm:h-auto">
         {cards.map((card) => (
           <SingleCards
             handlerChoices={handlerChoices}
@@ -126,12 +126,12 @@ function Cards() {
         ))}
       </div>
 
-      <p className="sm:hidden w-full text-white font-semibold text-center absolute bottom-[-10px] bg-gradient-to-r from-purple-600 to-[#7f23cf] rounded-xl p-2 shadow-lg">
+      <p className="sm:hidden w-full text-white font-semibold text-center absolute bottom-[-10px] border border-white mb-3 shadow-lg">
         Moves: {moves}
       </p>
 
       {showModal && hasFailed && (
-        <FailedModal retryForFailed={retryForFailed} />
+        <FailedModal moves={moves} retryForFailed={retryForFailed} />
       )}
       {showModal && success && (
         <SuccessModal successor={successor} moves={moves} />

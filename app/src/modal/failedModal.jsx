@@ -2,11 +2,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function FailedModal({ retryForFailed }) {
+function FailedModal({ retryForFailed,moves }) {
   const [gif, setGif] = useState(null);
   const [reactions, setReactions] = useState([]);
   const [gifFetched, setGifFetched] = useState(false);
-
+  const totalMoves = 12
+  const scaledMove = Math.round((moves / totalMoves) * 100);
   useEffect(() => {
     const fetchReactions = async () => {
       try {
@@ -42,6 +43,7 @@ function FailedModal({ retryForFailed }) {
       <div className="bg-[#1a1a2e] text-white p-6 rounded-2xl shadow-xl w-80 text-center animate-fadeIn">
         <h2 className="text-xl font-bold">Oops! You Failed</h2>
         <p className="text-gray-300 mt-2">Try again and improve your score.</p>
+        <p className="text-gray-300 mt-2">score : {scaledMove} </p>
         <div className="flex justify-center items-center mt-4">
           <img src={gif || ""} alt="Failed Reaction" className="w-32 h-32" />
         </div>
