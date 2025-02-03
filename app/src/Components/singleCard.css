@@ -22,12 +22,13 @@
 
 .card .front {
   transform: rotateY(90deg);
-  transition: all ease-in 0.2s;
+  transition: all ease-in 0.1s;
   position: absolute;
   bottom: 0;
   object-fit: cover;
   width: 100%;
   height: 100%;
+  background-color: transparent;
 }
 .flipped .front {
   transform: rotateY(0deg);

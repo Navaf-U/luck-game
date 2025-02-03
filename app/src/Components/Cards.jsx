@@ -1,3 +1,5 @@
+import FailedModal from "../modal/failedModal";
+import SuccessModal from "../modal/successModal";
 import "./card.css";
 import NavBar from "./NavBar";
 import SingleCards from "./SingleCards";
@@ -5,17 +7,20 @@ import { useEffect, useState } from "react";
 
 function Cards() {
   const [cards, setCards] = useState([]);
-  const [, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [moves, setMoves] = useState(0);
+  const [hasFailed, setHasFailed] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const cardImages = [
-    { src: "/src/assets/CardDeath.jpg", matched: false },
-    { src: "/src/assets/CardDevil.jpg", matched: false },
-    { src: "/src/assets/CardEmperor.jpg", matched: false },
-    { src: "/src/assets/CardFool.jpg", matched: false },
-    { src: "src/assets/CardHermit.jpg", matched: false },
-    { src: "/src/assets/CardQueen.jpg", matched: false },
+    { src: "/src/assets/card-1.jpg", matched: false },
+    { src: "/src/assets/card-2.jpg", matched: false },
+    { src: "/src/assets/card-3.jpg", matched: false },
+    { src: "/src/assets/card-4.jpg", matched: false },
+    { src: "src/assets/card-5.jpg", matched: false },
+    { src: "/src/assets/card-6.jpg", matched: false },
   ];
 
   const shuffleCards = () => {
@@ -23,7 +28,7 @@ function Cards() {
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
     setCards(suffledCard);
-    setTurns(0);
+    setMoves(0);
   };
 
   const handlerChoices = (card) => {
@@ -33,31 +38,64 @@ function Cards() {
   useEffect(() => {
     if (choiceOne && choiceTwo) {
       if (choiceOne.src === choiceTwo.src) {
-        setCards((prev) => {
-          return prev.map((card) => {
-            if (card.src === choiceOne.src) {
-              return { ...card, matched: true };
-            } else {
-              return card;
-            }
-          });
-        });
+        setCards((prev) =>
+          prev.map((card) =>
+            card.src === choiceOne.src ? { ...card, matched: true } : card
+          )
+        );
+        setMoves((prev) => prev + 1);
         resetTurn();
       } else {
-        setTimeout(() => resetTurn(), 1000);
+        setTimeout(() => {
+          setHasFailed(true);
+          setShowModal(true);
+        }, 500);
       }
     }
   }, [choiceOne, choiceTwo]);
-  console.log(cards, "hi");
+
+  useEffect(() => {
+    if (cards.length && cards.every((card) => card.matched)) {
+      setTimeout(() => {
+        setShowModal(true);
+        setSuccess(true);
+      }, 500);
+    }
+  }, [cards]);
+
   const resetTurn = () => {
     setChoiceOne(null);
     setChoiceTwo(null);
-    setTurns((prev) => prev + 1);
+    setMoves((prev) => prev + 1);
   };
 
   useEffect(() => {
     shuffleCards();
   }, []);
+
+  const retryForFailed = () => {
+    const shuffledCards = [...cardImages, ...cardImages]
+      .sort(() => Math.random() - 0.5)
+      .map((card) => ({ ...card, id: Math.random() }));
+
+    setCards(shuffledCards);
+    setChoiceOne(null);
+    setChoiceTwo(null);
+    setMoves(0);
+    setHasFailed(false);
+  };
+  const successor = () => {
+    const shuffledCards = [...cardImages, ...cardImages]
+      .sort(() => Math.random() - 0.5)
+      .map((card) => ({ ...card, id: Math.random() }));
+
+    setCards(shuffledCards);
+    setChoiceOne(null);
+    setChoiceTwo(null);
+    setMoves(0);
+    setHasFailed(false);
+    setShowModal(false);
+  };
 
   return (
     <div className="bg-[#060621] h-screen">
@@ -77,6 +115,12 @@ function Cards() {
           />
         ))}
       </div>
+      {showModal && hasFailed && (
+        <FailedModal retryForFailed={retryForFailed} />
+      )}
+      {showModal && success && (
+        <SuccessModal successor={successor} moves={moves} />
+      )}
     </div>
   );
 }
