@@ -4,12 +4,12 @@ import "./card.css";
 import NavBar from "./NavBar";
 import SingleCards from "./SingleCards";
 import { useEffect, useState } from "react";
-import card1 from '../assets/card-1.jpg'
-import card2 from '../assets/card-2.jpg'
-import card3 from '../assets/card-3.jpg' 
-import card4 from '../assets/card-4.jpg' 
-import card5 from '../assets/card-5.jpg' 
-import card6 from '../assets/card-6.jpg' 
+import card1 from "../assets/card-1.jpg";
+import card2 from "../assets/card-2.jpg";
+import card3 from "../assets/card-3.jpg";
+import card4 from "../assets/card-4.jpg";
+import card5 from "../assets/card-5.jpg";
+import card6 from "../assets/card-6.jpg";
 function Cards() {
   const [cards, setCards] = useState([]);
   const [choiceOne, setChoiceOne] = useState(null);
@@ -18,8 +18,6 @@ function Cards() {
   const [moves, setMoves] = useState(0);
   const [hasFailed, setHasFailed] = useState(false);
   const [success, setSuccess] = useState(false);
-
-
 
   const cardImages = [
     { src: card1, matched: false },
@@ -92,16 +90,12 @@ function Cards() {
   };
 
   const successor = () => {
-    const shuffledCards = [...cardImages, ...cardImages]
-      .sort(() => Math.random() - 0.5)
-      .map((card) => ({ ...card, id: Math.random() }));
-
+    const shuffledCards = [...cardImages, ...cardImages].sort(() => Math.random() - 0.5).map((card) => ({ ...card, id: Math.random() }));
     setCards(shuffledCards);
     setChoiceOne(null);
     setChoiceTwo(null);
     setMoves(0);
     setHasFailed(false);
-    setShowModal(false);
   };
 
   return (
