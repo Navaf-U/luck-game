@@ -1,0 +1,6 @@
+client/**/*.css linguist-vendored
+client/**/*.html linguist-vendored
+client/**/*.js linguist-vendored
+client/**/*.jsx linguist-vendored
+server/src/*.ts linguist-detectable
+server/**/*.ts linguist-detectable
