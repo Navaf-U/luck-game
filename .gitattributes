@@ -1,0 +1,4 @@
+client/**/*.css linguist-vendored
+client/**/*.html linguist-vendored
+client/**/*.js linguist-vendored
+client/**/*.jsx linguist-vendored
