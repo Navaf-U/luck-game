@@ -104,7 +104,7 @@ function Cards() {
       <div className="fixed top-0 w-full left-0 z-10">
         <NavBar retryForFailed={retryForFailed} />
       </div>
-       <div className="mt-56 hidden bg-gradient-to-r from-blue-900 to-purple-900 text-white rounded-xl p-3 shadow-lg border border-blue-400 border-opacity-30 animate-pulse  sm:flex flex-col items-center absolute top-5 right-5 w-[220px]">
+      <div className="cursor-not-allowed  mt-56 hidden bg-gradient-to-r from-blue-900 to-purple-900 text-white rounded-xl p-3 shadow-lg border border-blue-400 border-opacity-30 animate-pulse  sm:flex flex-col items-center absolute top-5 right-5 w-[220px]">
         <p className="text-center font-semibold">Moves</p>
         <p className="text-center text-2xl font-bold">{moves}</p>
       </div>
@@ -114,8 +114,8 @@ function Cards() {
         className="mt-56 cursor-pointer hidden sm:flex flex-col items-center absolute top-5 left-16 text-white rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 shadow-lg transition-all duration-300 transform hover:scale-105  p-4 w-[220px] bg-[#c70039]"
       >
         <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
-              <path d="M17.65,6.35C16.2,4.9 14.21,4 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C15.73,20 18.84,17.45 19.73,14H17.65C16.83,16.33 14.61,18 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6C13.66,6 15.14,6.69 16.22,7.78L13,11H20V4L17.65,6.35Z" />
-            </svg>
+          <path d="M17.65,6.35C16.2,4.9 14.21,4 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C15.73,20 18.84,17.45 19.73,14H17.65C16.83,16.33 14.61,18 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6C13.66,6 15.14,6.69 16.22,7.78L13,11H20V4L17.65,6.35Z" />
+        </svg>
 
         Play Again
       </div>
